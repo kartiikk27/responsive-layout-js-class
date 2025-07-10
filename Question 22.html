@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Responsive Layout & JS Classes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f9fcff;
+    }
+
+    h2 {
+      text-align: center;
+      color: #1976d2;
+    }
+
+    /* Horizontal layout by default */
+    .container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .box {
+      background-color: #e3f2fd;
+      padding: 20px;
+      border-radius: 8px;
+      width: 150px;
+      text-align: center;
+    }
+
+    /* Switch to vertical layout on small screens */
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    #personOutput {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #fff3e0;
+      border: 1px solid #ffb74d;
+      border-radius: 6px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #0d47a1;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Responsive Layout & JavaScript Class</h2>
+
+  <!-- Horizontal layout divs -->
+  <div class="container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+  </div>
+
+  <!-- Output for class-based object -->
+  <div id="personOutput">Person info will appear here...</div>
+  <button onclick="createAndShowPerson()">Create Person</button>
+
+  <script>
+    // Define the Person class
+    class Person {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      sayHello() {
+        return `👋 Hello, my name is ${this.name} and I am ${this.age} years old.`;
+      }
+    }
+
+    // Create and log person details
+    function createAndShowPerson() {
+      const person = new Person("Kartik", 21);
+      const message = person.sayHello();
+
+      document.getElementById("personOutput").textContent = message;
+      console.log(message); // Also log in console
+    }
+  </script>
+
+</body>
+</html>
